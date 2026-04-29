@@ -58,6 +58,27 @@ collections:
               - { label: "Story Text", name: "body", widget: "text", hint: "Keep it to 2-3 sentences for the card view" }
 
   # -------------------------------------------------------------------
+  # TESTIMONIALS — short quotes shown on the stories page
+  # -------------------------------------------------------------------
+  - name: "testimonials_collection"
+    label: "💬 Testimonials"
+    files:
+      - name: "testimonials"
+        label: "All Testimonials"
+        file: "content/testimonials.json"
+        fields:
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            label_singular: "Testimonial"
+            summary: "{{fields.name}} — {{fields.location}}"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text", hint: "What the client said. 1-2 sentences works best." }
+              - { label: "Client Name", name: "name", widget: "string", hint: "e.g. 'Maria T.' — first name + last initial is common" }
+              - { label: "Location", name: "location", widget: "string", hint: "City, state — e.g. 'Tampa, FL'" }
+              - { label: "Show on Site?", name: "visible", widget: "boolean", default: true, hint: "Uncheck to hide without deleting" }
+
+  # -------------------------------------------------------------------
   # SITE SETTINGS — phone, email, social, etc.
   # -------------------------------------------------------------------
   - name: "settings"

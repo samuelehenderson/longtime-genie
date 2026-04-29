@@ -1,0 +1,40 @@
+{
+  "testimonials": [
+    {
+      "quote": "Sheri didn't just give me names — she gave me back a piece of myself I didn't know was missing.",
+      "name": "Maria T.",
+      "location": "Tampa, FL",
+      "visible": true
+    },
+    {
+      "quote": "I've worked with two other genealogists. Sheri is the one who actually found what I was looking for.",
+      "name": "Diane W.",
+      "location": "Ocala, FL",
+      "visible": true
+    },
+    {
+      "quote": "She handled the hard part — the news no one wanted to hear — with so much grace. I'll never forget that.",
+      "name": "James R.",
+      "location": "Atlanta, GA",
+      "visible": true
+    },
+    {
+      "quote": "The legacy book Sheri made for our parents made my mother cry. In a good way. We'll have it forever.",
+      "name": "The Hendersons",
+      "location": "Macon, GA",
+      "visible": true
+    },
+    {
+      "quote": "I went in confused about my DNA results. I came out with answers — and a roadmap.",
+      "name": "Tom L.",
+      "location": "Orlando, FL",
+      "visible": true
+    },
+    {
+      "quote": "She found my brother. There aren't really words for what that meant.",
+      "name": "Rachel B.",
+      "location": "Charlotte, NC",
+      "visible": true
+    }
+  ]
+}

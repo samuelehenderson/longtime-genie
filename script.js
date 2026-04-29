@@ -222,4 +222,64 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
+  /* ---------- 9. DYNAMIC TESTIMONIALS LOADER (stories.html) ---------- */
+  // Fetches testimonials from content/testimonials.json (managed by the CMS)
+  // and renders them into #testimonials-grid.
+  const testimonialsGrid = document.getElementById('testimonials-grid');
+  if (testimonialsGrid) {
+    fetch('content/testimonials.json')
+      .then(response => response.json())
+      .then(data => {
+        const visible = (data.testimonials || []).filter(t => t.visible !== false);
+
+        if (visible.length === 0) {
+          testimonialsGrid.style.display = 'none';
+          return;
+        }
+
+        const safe = (str) => String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+
+        const cards = visible.map(t => {
+          const initial = (t.name || '?').trim().charAt(0).toUpperCase();
+          return `
+            <div class="testimonial reveal">
+              <p class="testimonial__quote">${safe(t.quote)}</p>
+              <div class="testimonial__author">
+                <span class="testimonial__avatar">${safe(initial)}</span>
+                <div>
+                  <span class="testimonial__name">${safe(t.name)}</span>
+                  <span class="testimonial__role">${safe(t.location)}</span>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        testimonialsGrid.innerHTML = cards;
+
+        // Reveal animation for newly added testimonials
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1 });
+          testimonialsGrid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        } else {
+          testimonialsGrid.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        }
+      })
+      .catch(err => {
+        console.error('Could not load testimonials:', err);
+        testimonialsGrid.style.display = 'none';
+      });
+  }
+
 });
