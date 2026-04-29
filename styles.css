@@ -1591,3 +1591,73 @@ p {
   }
 }
 
+/* ==========================================================
+   STORIES PAGE — INTRO QUOTE BLOCK
+   ========================================================== */
+.stories-intro {
+  padding: 2.5rem 0 3.5rem;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+  text-align: center;
+  position: relative;
+}
+
+.stories-intro__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.stories-intro__quote {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  line-height: 1.45;
+  color: var(--charcoal);
+  margin: 1.5rem 0 2rem;
+  font-weight: 400;
+}
+
+.stories-intro__quote em.script {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--teal-dark);
+  font-size: 1.7rem;
+}
+
+.stories-intro__body {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--charcoal-soft);
+  margin: 0 auto 1.5rem;
+  max-width: 600px;
+}
+
+.stories-intro__body strong {
+  color: var(--teal);
+  font-weight: 500;
+}
+
+.stories-intro__attribution {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .stories-intro {
+    padding: 1.5rem 0 2.5rem;
+  }
+  .stories-intro__quote {
+    font-size: 1.4rem;
+  }
+  .stories-intro__quote em.script {
+    font-size: 1.3rem;
+  }
+  .stories-intro__body {
+    font-size: 0.98rem;
+  }
+}
+
