@@ -72,14 +72,11 @@
     <!-- ==========================================================
          STORY GRID (longer narrative cards)
          ========================================================== -->
-    <section class="section">
+    <section class="section section--tight" style="padding-top: 0;">
       <div class="container">
 
         <!-- Story grid is rendered dynamically from content/stories.json -->
-        <div class="story-grid" id="story-grid" data-loading="true">
-          <!-- Loading state — shown briefly while stories.json fetches -->
-          <p style="color: var(--muted); font-style: italic; text-align: center; grid-column: 1/-1;">Loading stories…</p>
-        </div>
+        <div class="story-grid" id="story-grid" data-loading="true"></div>
 
       </div>
     </section>
