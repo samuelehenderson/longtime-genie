@@ -1,0 +1,20 @@
+# =====================================================================
+# Netlify Configuration for Longtime Genie
+# =====================================================================
+# This file tells Netlify how to deploy and serve the site.
+
+[build]
+  publish = "."
+  # No build command needed — this is a static site
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Robots-Tag = "noindex"
+
+# Cache busting for the dynamic stories file (so updates show fast)
+[[headers]]
+  for = "/content/*"
+  [headers.values]
+    Cache-Control = "public, max-age=60, must-revalidate"

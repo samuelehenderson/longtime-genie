@@ -12,6 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <!-- Netlify Identity (allows admin login) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -73,170 +75,10 @@
     <section class="section">
       <div class="container">
 
-        <div class="story-grid">
-
-          <!-- Story 1 -->
-          <article class="story-card reveal">
-            <div class="story-card__visual">
-              <span class="story-card__tag">Adoption</span>
-              <!-- PLACEHOLDER: replace with photo, e.g. <img src="..." alt="..."/> -->
-              <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="400" height="250" fill="#00868b"/>
-                <g stroke="#c9a227" stroke-width="1" fill="none" opacity="0.5">
-                  <circle cx="200" cy="125" r="40"/>
-                  <circle cx="200" cy="125" r="70"/>
-                  <circle cx="200" cy="125" r="100"/>
-                </g>
-                <path d="M200 85 L200 165 M170 105 L200 95 L230 105 M170 145 L200 135 L230 145" stroke="#c9a227" stroke-width="1.5" fill="none"/>
-              </svg>
-            </div>
-            <div class="story-card__body">
-              <h3 class="story-card__title">The Father She Never Knew</h3>
-              <p class="story-card__excerpt">
-                Adopted at birth, Maria spent forty years wondering. Sheri found her biological father —
-                still living, still in the same town she'd been born in. They met for coffee three weeks later.
-              </p>
-              <p class="story-card__attribution">— Maria T., Tampa, FL</p>
-            </div>
-          </article>
-
-          <!-- Story 2 -->
-          <article class="story-card reveal">
-            <div class="story-card__visual">
-              <span class="story-card__tag">Family Tree</span>
-              <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="400" height="250" fill="#c9a227"/>
-                <g stroke="#f8f4ec" stroke-width="1.5" fill="none" stroke-linecap="round">
-                  <path d="M200 220 Q200 160 200 80"/>
-                  <path d="M200 140 Q160 100 120 70"/>
-                  <path d="M200 140 Q240 100 280 70"/>
-                  <path d="M200 80 Q170 50 140 30"/>
-                  <path d="M200 80 Q230 50 260 30"/>
-                </g>
-                <g fill="#f8f4ec">
-                  <circle cx="200" cy="80" r="5"/>
-                  <circle cx="120" cy="70" r="4"/>
-                  <circle cx="280" cy="70" r="4"/>
-                  <circle cx="140" cy="30" r="4"/>
-                  <circle cx="260" cy="30" r="4"/>
-                </g>
-              </svg>
-            </div>
-            <div class="story-card__body">
-              <h3 class="story-card__title">Six Generations, Bound in Leather</h3>
-              <p class="story-card__excerpt">
-                The Hendersons commissioned a legacy report for their parents' 50th anniversary.
-                Sheri delivered a hand-bound book tracing six generations — including a great-great-grandfather
-                no one had ever heard about.
-              </p>
-              <p class="story-card__attribution">— The Henderson Family, GA</p>
-            </div>
-          </article>
-
-          <!-- Story 3 -->
-          <article class="story-card reveal">
-            <div class="story-card__visual">
-              <span class="story-card__tag">DNA Surprise</span>
-              <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="400" height="250" fill="#036568"/>
-                <g stroke="#c9a227" stroke-width="2" fill="none" stroke-linecap="round">
-                  <path d="M150 50 Q200 100 150 150 Q100 200 150 250"/>
-                  <path d="M250 50 Q200 100 250 150 Q300 200 250 250"/>
-                  <path d="M150 80 L250 80 M150 130 L250 130 M150 180 L250 180"/>
-                </g>
-              </svg>
-            </div>
-            <div class="story-card__body">
-              <h3 class="story-card__title">Reading the Match List</h3>
-              <p class="story-card__excerpt">
-                Tom's AncestryDNA results showed a close match he didn't recognize. Sheri walked him through
-                the data and helped him understand what it meant — gently, and over the time he needed.
-              </p>
-              <p class="story-card__attribution">— Tom L., Orlando, FL</p>
-            </div>
-          </article>
-
-          <!-- Story 4 -->
-          <article class="story-card reveal">
-            <div class="story-card__visual">
-              <span class="story-card__tag">Lost Sibling</span>
-              <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="400" height="250" fill="#66b2b2"/>
-                <g stroke="#f8f4ec" stroke-width="1.5" fill="none" stroke-linecap="round">
-                  <circle cx="160" cy="125" r="30"/>
-                  <circle cx="240" cy="125" r="30"/>
-                  <path d="M190 125 L210 125"/>
-                </g>
-                <text x="200" y="200" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="20" fill="#f8f4ec">found</text>
-              </svg>
-            </div>
-            <div class="story-card__body">
-              <h3 class="story-card__title">A Brother in Ohio</h3>
-              <p class="story-card__excerpt">
-                Diane had been told for years that her mother only had one child. The DNA said otherwise.
-                Sheri followed the trail — and found a half-brother, eight years older, who'd been
-                searching for her too.
-              </p>
-              <p class="story-card__attribution">— Diane W., Ocala, FL</p>
-            </div>
-          </article>
-
-          <!-- Story 5 -->
-          <article class="story-card reveal">
-            <div class="story-card__visual">
-              <span class="story-card__tag">Generational Healing</span>
-              <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="400" height="250" fill="#222222"/>
-                <g stroke="#c9a227" stroke-width="1" fill="none" opacity="0.6">
-                  <circle cx="200" cy="125" r="50"/>
-                  <circle cx="200" cy="125" r="80"/>
-                  <circle cx="200" cy="125" r="110"/>
-                </g>
-                <circle cx="200" cy="125" r="6" fill="#c9a227"/>
-              </svg>
-            </div>
-            <div class="story-card__body">
-              <h3 class="story-card__title">The Pattern Made Sense</h3>
-              <p class="story-card__excerpt">
-                Three generations of estranged fathers. After our research and a coaching series,
-                James understood what he was inheriting — and made the choice to break the cycle for his own son.
-              </p>
-              <p class="story-card__attribution">— James R., Atlanta, GA</p>
-            </div>
-          </article>
-
-          <!-- Story 6 -->
-          <article class="story-card reveal">
-            <div class="story-card__visual">
-              <span class="story-card__tag">Donor Conceived</span>
-              <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="400" height="250" fill="#efe7d4"/>
-                <g stroke="#00868b" stroke-width="1.5" fill="none" stroke-linecap="round">
-                  <path d="M200 50 L200 200"/>
-                  <path d="M150 80 L250 80"/>
-                  <path d="M130 130 L270 130"/>
-                  <path d="M150 180 L250 180"/>
-                </g>
-                <g fill="#c9a227">
-                  <circle cx="200" cy="50" r="5"/>
-                  <circle cx="150" cy="80" r="4"/>
-                  <circle cx="250" cy="80" r="4"/>
-                  <circle cx="130" cy="130" r="4"/>
-                  <circle cx="270" cy="130" r="4"/>
-                  <circle cx="200" cy="200" r="5"/>
-                </g>
-              </svg>
-            </div>
-            <div class="story-card__body">
-              <h3 class="story-card__title">Half-Siblings, Coast to Coast</h3>
-              <p class="story-card__excerpt">
-                Donor-conceived and curious, Rachel asked Sheri to help her find biological half-siblings.
-                There were seven. They've started a group chat and meet every summer.
-              </p>
-              <p class="story-card__attribution">— Rachel B., Charlotte, NC</p>
-            </div>
-          </article>
-
+        <!-- Story grid is rendered dynamically from content/stories.json -->
+        <div class="story-grid" id="story-grid" data-loading="true">
+          <!-- Loading state — shown briefly while stories.json fetches -->
+          <p style="color: var(--muted); font-style: italic; text-align: center; grid-column: 1/-1;">Loading stories…</p>
         </div>
 
       </div>
@@ -385,5 +227,17 @@
   </footer>
 
   <script src="script.js"></script>
+  <!-- Redirect logged-in admins to /admin if they came from confirmation email -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>

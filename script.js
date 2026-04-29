@@ -145,4 +145,81 @@ document.addEventListener('DOMContentLoaded', () => {
     yearSpan.textContent = new Date().getFullYear();
   }
 
+  /* ---------- 8. DYNAMIC STORIES LOADER (stories.html) ---------- */
+  // Fetches stories from content/stories.json (managed by the CMS)
+  // and renders them into #story-grid. Allows Sheri to add/edit stories
+  // through /admin without anyone touching code.
+  const storyGrid = document.getElementById('story-grid');
+  if (storyGrid) {
+    fetch('content/stories.json')
+      .then(response => response.json())
+      .then(data => {
+        const visibleStories = (data.stories || []).filter(s => s.visible !== false);
+
+        if (visibleStories.length === 0) {
+          storyGrid.innerHTML = '<p style="color: var(--muted); font-style: italic; text-align: center; grid-column: 1/-1;">More stories coming soon.</p>';
+          return;
+        }
+
+        // Color palette rotated through stories for visual variety
+        const palettes = [
+          { bg: '#00868b', accent: '#c9a227' },
+          { bg: '#c9a227', accent: '#f8f4ec' },
+          { bg: '#036568', accent: '#c9a227' },
+          { bg: '#66b2b2', accent: '#f8f4ec' },
+          { bg: '#222222', accent: '#c9a227' },
+          { bg: '#efe7d4', accent: '#00868b' }
+        ];
+
+        const cards = visibleStories.map((story, i) => {
+          const palette = palettes[i % palettes.length];
+          // Escape HTML to prevent injection
+          const safe = (str) => String(str || '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+          return `
+            <article class="story-card reveal">
+              <div class="story-card__visual" style="background:${palette.bg};">
+                <span class="story-card__tag">${safe(story.tag)}</span>
+                <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <g stroke="${palette.accent}" stroke-width="1" fill="none" opacity="0.5">
+                    <circle cx="200" cy="125" r="40"/>
+                    <circle cx="200" cy="125" r="70"/>
+                    <circle cx="200" cy="125" r="100"/>
+                  </g>
+                </svg>
+              </div>
+              <div class="story-card__body">
+                <h3 class="story-card__title">${safe(story.title)}</h3>
+                <p class="story-card__excerpt">${safe(story.body)}</p>
+                <p class="story-card__attribution">${safe(story.attribution)}</p>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        storyGrid.innerHTML = cards;
+        storyGrid.removeAttribute('data-loading');
+
+        // Re-trigger reveal animations on newly added cards
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('reveal--visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1 });
+          storyGrid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+      })
+      .catch(err => {
+        console.error('Could not load stories:', err);
+        storyGrid.innerHTML = '<p style="color: var(--muted); font-style: italic; text-align: center; grid-column: 1/-1;">Stories are temporarily unavailable. Please refresh the page.</p>';
+      });
+  }
+
 });
