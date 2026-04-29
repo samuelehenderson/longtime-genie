@@ -83,29 +83,50 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---------- 5. CONTACT FORM HANDLING ---------- */
-  // NOTE: GitHub Pages can't process form submissions on its own.
-  // The form below shows a success message, but to actually receive emails,
-  // hook it up to one of these free services and update the form's `action`:
-  //   - Formspree (https://formspree.io)
-  //   - Getform (https://getform.io)
-  //   - Web3Forms (https://web3forms.com)
-  // See README.md for instructions.
+  // Submits to Web3Forms which emails longtimegenie@gmail.com
+  // Uses fetch() so the page doesn't redirect away on submit
   const form = document.querySelector('.contact-form');
   if (form) {
-    form.addEventListener('submit', (e) => {
-      // If the form has no real action set (placeholder "#"),
-      // intercept and show success state instead of submitting.
-      const action = form.getAttribute('action');
-      if (!action || action === '#' || action.includes('YOUR_FORM_ENDPOINT')) {
-        e.preventDefault();
-        const success = form.querySelector('.form-success');
-        if (success) {
-          success.classList.add('show');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const success = form.querySelector('.form-success');
+      const originalText = submitBtn.innerHTML;
+
+      // Show sending state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending...';
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          // Hide form, show success message
+          form.querySelectorAll('.form-row, .form-group, button').forEach(el => {
+            el.style.display = 'none';
+          });
+          if (success) {
+            success.classList.add('show');
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
           form.reset();
-          setTimeout(() => success.classList.remove('show'), 6000);
+        } else {
+          // Show error inline
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+          alert('Something went wrong sending your message. Please try again, or email longtimegenie@gmail.com directly.');
         }
+      } catch (error) {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        alert('Connection issue. Please try again, or email longtimegenie@gmail.com directly.');
       }
-      // Otherwise, let the form submit normally to the real endpoint.
     });
   }
 

@@ -146,32 +146,16 @@
           </div>
 
           <!-- RIGHT: form -->
-          <!--
-            ============================================================
-            CONTACT FORM
-            ============================================================
-            HOW TO MAKE THIS FORM ACTUALLY SEND EMAILS:
-
-            GitHub Pages can host this site, but it CAN'T process form
-            submissions on its own. To receive emails, sign up for one of
-            these free services and replace the action="#" below:
-
-            OPTION A — Formspree (easiest):
-              1. Sign up at https://formspree.io
-              2. Create a new form, copy your endpoint URL
-                 (looks like: https://formspree.io/f/YOUR_ID)
-              3. Replace action="#" with action="https://formspree.io/f/YOUR_ID"
-
-            OPTION B — Web3Forms (no signup, free):
-              1. Get an access key at https://web3forms.com
-              2. Replace action="#" with action="https://api.web3forms.com/submit"
-              3. Add a hidden input: <input type="hidden" name="access_key" value="YOUR_KEY"/>
-
-            Once you set a real action, the JS in script.js will let the
-            form submit normally instead of just showing the success message.
-            ============================================================
-          -->
-          <form class="contact-form reveal" action="#" method="POST">
+          <!-- Contact form — submits to Web3Forms which emails longtimegenie@gmail.com -->
+          <form class="contact-form reveal" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Web3Forms access key (links submissions to longtimegenie@gmail.com) -->
+            <input type="hidden" name="access_key" value="69dee31e-1842-44fb-ab12-549941a60447">
+            <!-- Custom subject so it stands out in Sheri's inbox -->
+            <input type="hidden" name="subject" value="New inquiry from Longtime Genie website">
+            <!-- The friendly "from" name shown in the email -->
+            <input type="hidden" name="from_name" value="Longtime Genie Website">
+            <!-- Honeypot field to block spam bots (if filled, submission is rejected) -->
+            <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
             <h3 style="margin-bottom: 0.5rem;">Send a message</h3>
             <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem;">
               All fields are gentle nudges — share what feels comfortable.
