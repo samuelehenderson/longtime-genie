@@ -1438,8 +1438,10 @@ p {
   }
 
   .hero__visual {
-    margin: 0 auto;
-    max-width: 380px;
+    margin: 0 auto 2rem;
+    max-width: 320px;
+    width: 100%;
+    position: relative;
   }
 
   .about-preview__visual {
@@ -1513,9 +1515,24 @@ p {
   }
 
   .hero__badge {
-    bottom: -20px;
+    bottom: -16px;
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
+    max-width: calc(100% - 2rem);
+    padding: 0.75rem 1rem;
+  }
+
+  .hero__badge-text {
+    font-size: 1rem;
+  }
+
+  .hero__tagline {
+    top: 16px;
+    right: 16px;
+    transform: rotate(4deg);
+    font-size: 0.65rem;
+    padding: 0.3rem 0.9rem;
   }
 }
 
