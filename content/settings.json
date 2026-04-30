@@ -1,13 +1,14 @@
 {
   "business_name": "Longtime Genie",
   "tagline": "Genealogy & Discovery",
-  "email": "longtimegenie@gmail.com",
+  "email": "hello@longtimegenie.com",
   "phone": "(352) 555-1234",
-  "phone_display": "(352) 555-1234",
+  "phone_link": "+13525551234",
   "location": "Ocala, Florida",
-  "hours": "By appointment, Monday through Friday",
+  "hours": "Mon–Fri · 9am–5pm ET",
+  "footer_tagline": "Uncover the story that made you.",
+  "footer_description": "Genealogy research, biological family searches, and legacy reports — guided by Sheri Long, The Digger.",
   "instagram_url": "",
   "facebook_url": "",
-  "linkedin_url": "",
-  "footer_tagline": "Every name. Every story. Every connection."
+  "linkedin_url": ""
 }

@@ -88,14 +88,15 @@ collections:
         label: "Contact & Business Info"
         file: "content/settings.json"
         fields:
-          - { label: "Business Name", name: "business_name", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "string", hint: "Shown next to the logo in the navigation" }
-          - { label: "Email Address", name: "email", widget: "string", hint: "Where contact form submissions are emailed" }
-          - { label: "Phone Number", name: "phone", widget: "string", hint: "Used for the clickable phone link" }
-          - { label: "Phone (Display)", name: "phone_display", widget: "string", hint: "How the phone number is shown on the site" }
-          - { label: "Location", name: "location", widget: "string", hint: "City, state — shown on contact page" }
-          - { label: "Business Hours", name: "hours", widget: "string" }
-          - { label: "Footer Tagline", name: "footer_tagline", widget: "string", hint: "The italic line at the bottom of every page" }
-          - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false }
-          - { label: "Facebook URL", name: "facebook_url", widget: "string", required: false }
-          - { label: "LinkedIn URL", name: "linkedin_url", widget: "string", required: false }
+          - { label: "Business Name", name: "business_name", widget: "string", hint: "Used in titles and headings" }
+          - { label: "Tagline", name: "tagline", widget: "string", hint: "Shown under the logo in the navigation, e.g. 'Genealogy & Discovery'" }
+          - { label: "Email Address", name: "email", widget: "string", hint: "The email shown on the contact page and footer" }
+          - { label: "Phone Number (Display)", name: "phone", widget: "string", hint: "How the phone is shown to visitors, e.g. '(352) 555-1234'" }
+          - { label: "Phone Link Format", name: "phone_link", widget: "string", hint: "Phone in clickable format with country code, e.g. '+13525551234' (no spaces or dashes)" }
+          - { label: "Location", name: "location", widget: "string", hint: "City, state — e.g. 'Ocala, Florida'" }
+          - { label: "Business Hours", name: "hours", widget: "string", hint: "e.g. 'By appointment, Monday through Friday'" }
+          - { label: "Footer Tagline", name: "footer_tagline", widget: "string", hint: "The italic line in the footer" }
+          - { label: "Footer Description", name: "footer_description", widget: "text", hint: "The longer description below the tagline in the footer" }
+          - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false, hint: "Full URL — leave blank to hide" }
+          - { label: "Facebook URL", name: "facebook_url", widget: "string", required: false, hint: "Full URL — leave blank to hide" }
+          - { label: "LinkedIn URL", name: "linkedin_url", widget: "string", required: false, hint: "Full URL — leave blank to hide" }

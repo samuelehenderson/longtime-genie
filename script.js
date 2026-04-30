@@ -12,6 +12,41 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---------- 0. APPLY SITE SETTINGS (loaded from CMS) ---------- */
+  // Fetches content/settings.json and replaces text/links across the page.
+  // If the fetch fails, the hardcoded fallback values in HTML stay visible.
+  fetch('content/settings.json')
+    .then(r => r.json())
+    .then(settings => {
+      // Replace text content in all elements with [data-setting="key"]
+      document.querySelectorAll('[data-setting]').forEach(el => {
+        const key = el.getAttribute('data-setting');
+        if (settings[key]) el.textContent = settings[key];
+      });
+
+      // Replace href attributes for elements with [data-setting-href]
+      document.querySelectorAll('[data-setting-href]').forEach(el => {
+        const key = el.getAttribute('data-setting-href');
+        if (settings[key]) {
+          let href = settings[key];
+          if (key === 'email' && !href.startsWith('mailto:')) href = 'mailto:' + href;
+          if (key === 'phone_link' && !href.startsWith('tel:')) href = 'tel:' + href;
+          el.setAttribute('href', href);
+        }
+      });
+
+      // Hide elements whose social URL is empty
+      ['instagram_url', 'facebook_url', 'linkedin_url'].forEach(key => {
+        if (!settings[key] || !settings[key].trim()) {
+          document.querySelectorAll('[data-setting-href="' + key + '"]').forEach(el => {
+            const parent = el.closest('li, .social-link') || el;
+            parent.style.display = 'none';
+          });
+        }
+      });
+    })
+    .catch(err => console.warn('Settings not loaded — using HTML defaults:', err));
+
   /* ---------- 1. MOBILE NAV TOGGLE ---------- */
   const navToggle = document.querySelector('.nav__toggle');
   const navMenu = document.querySelector('.nav__menu');
